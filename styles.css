@@ -1,0 +1,47 @@
+:root {
+  --snake-head-color: #16e716;
+  --snake-body-color: #dcf11e;
+  --snake-border-color: red;
+  --food-color: #ffffff;
+}
+
+body {
+  background-color: #0a301b;
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+#score {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+canvas {
+  background-color: #000;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #fff;
+}
+
+#startButton,
+#restartButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#countdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  color: #fff;
+}
