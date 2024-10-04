@@ -90,7 +90,7 @@ function resumeGame() {
 
 // Función para iniciar el juego después de la cuenta regresiva
 function startGame() {
-    game = setInterval(updateGame, 100);
+    game = setInterval(updateGame, speed);
 }
 
 // Evento del botón de inicio/pausar/reanudar
@@ -121,14 +121,6 @@ restartButton.addEventListener('click', () => {
     initGame();
 });
 
-
-// Función para alternar entre las posiciones de la lengua
-function updateTongueState() {
-    tongueState = (tongueState + 1) % 3;  // Alterna entre 0, 1 y 2
-}
-
-setInterval(updateTongueState, 300);
-
 function drawSnake() {
     for (let i = 0; i < snake.length; i++) {
         let sx, sy;
@@ -137,7 +129,7 @@ function drawSnake() {
         if (i === 0) {
             // Cabeza de la serpiente
             sx = 0;  // Primera columna
-            sy = tongueState * snakeSpriteSize;  // Cambia entre las 3 filas (0, 1, 2) para la cabeza según la lengua
+            sy = 0;  // Primera fila
 
             // Rotar la cabeza según la dirección actual
             ctx.translate(snake[i].x + boxSize / 2, snake[i].y + boxSize / 2);  // Trasladamos el origen al centro de la cabeza
@@ -155,7 +147,7 @@ function drawSnake() {
 
         } else if (i === snake.length - 1) {
             // Cola de la serpiente
-            sx = 1 * snakeSpriteSize;  // Tercera columna
+            sx = 1 * snakeSpriteSize;  // Segunda columna
             sy = 2 * snakeSpriteSize;  // Tercera fila
 
             // Rotar la cola según la dirección del segmento anterior
@@ -222,6 +214,7 @@ function drawSnake() {
         ctx.restore();  // Restauramos el contexto después de cada segmento
     }
 }
+
 
 
 // Función para dibujar la comida usando el spritesheet (solo la fila del medio)
@@ -314,12 +307,6 @@ function updateGame() {
     // Dibujar la comida y la serpiente
     drawFood();
     drawSnake();
-}
-
-
-// Inicializar el juego con la velocidad predeterminada
-function startGame() {
-    game = setInterval(updateGame, speed);  // Inicia el juego con la velocidad actual
 }
 
 // Función de cuenta regresiva
