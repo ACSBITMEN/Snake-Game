@@ -41,6 +41,11 @@ let foodSpriteCol;  // Columna aleatoria para la comida
 const scoreDisplay = document.getElementById('score');
 const startButton = document.getElementById('startButton');
 const restartButton = document.getElementById('restartButton');
+// Obtener referencias al modal y sus elementos
+const modal = document.getElementById('gameOverModal');
+const closeModal = document.getElementById('closeModal');
+const finalScoreDisplay = document.getElementById('finalScore');
+const restartGameButton = document.getElementById('restartGame');
 
 // Controlar la serpiente con las teclas de flecha
 document.addEventListener('keydown', event => {
@@ -57,6 +62,7 @@ document.addEventListener('keydown', event => {
 
 // Función para iniciar el juego
 function initGame() {
+    speed = 110;  // Velocidad inicial de la serpiente
     // Configuración inicial de la serpiente y otros parámetros
     snake = [{ x: 9 * boxSize, y: 10 * boxSize }];
     direction = 'RIGHT';
@@ -271,7 +277,8 @@ function updateGame() {
     // Verificar si la serpiente choca con los bordes
     if (snakeX < 0 || snakeY < 0 || snakeX >= canvas.width || snakeY >= canvas.height) {
         clearInterval(game);
-        alert(`Juego terminado. Puntuación: ${score}`);
+        showGameOverModal(score);  // Mostrar el modal en lugar de alert
+        speed = 110;  // Restablecer la velocidad inicial
         startButton.textContent = 'Iniciar Juego';
         restartButton.style.display = 'none';
         return;
@@ -281,7 +288,7 @@ function updateGame() {
     for (let i = 0; i < snake.length; i++) {
         if (snake[i].x === newHead.x && snake[i].y === newHead.y) {
             clearInterval(game);
-            alert(`Juego terminado. Puntuación: ${score}`);
+            showGameOverModal(score);  // Mostrar el modal en lugar de alert
             startButton.textContent = 'Iniciar Juego';
             restartButton.style.display = 'none';
             return;
@@ -344,4 +351,29 @@ function countdown(callback) {
             }, 500);
         }
     }, 1000);
+}
+
+// Función para mostrar el modal con el puntaje final
+function showGameOverModal(score) {
+    finalScoreDisplay.innerText = `Puntuación final: ${score}`;
+    modal.style.display = 'block';  // Mostrar el modal
+}
+
+// Función para cerrar el modal
+closeModal.onclick = function () {
+    modal.style.display = 'none';
+}
+
+// También cerrar el modal si el usuario hace clic fuera de la caja modal
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+
+// Función para reiniciar el juego desde el modal
+restartGameButton.onclick = function () {
+    modal.style.display = 'none';  // Ocultar el modal
+    restartButton.click();  // Simular el clic en el botón de reinicio del juego
 }
