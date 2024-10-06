@@ -1,67 +1,67 @@
 :root {
-  --snake-head-color: #16e716;
-  --snake-body-color: #dcf11e;
-  --snake-border-color: red;
-  --food-color: #ffffff;
+  --color-background: #16423C;
+  --color-text: #FFFFFF;
+  --color-accent: #16e716;
+  --color-border: #dcf11e;
+  --color-food: #ffffff;
+  --color-button: #4CAF50;
+  --color-button-hover: #45a049;
+  --color-header-footer-bg: #16423C;
+  --color-header-footer-text: #C4DAD2;
 }
 
+/* Reiniciar estilos predeterminados */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  height: 100vh;
-  color: #fff;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+@font-face {
+  font-family: 'DS-Roti';
+  src: url('./fonts/love_roti/Love Roti.ttf') format('truetype');
+}
+
+/* Header */
 header {
-  background-color: #16423C;
+  background-color: var(--color-header-footer-bg);
+  color: var(--color-header-footer-text);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 13%;
-  text-align: center;
+  padding: 1rem;
 }
 
 header h1 {
-  color: #fff;
-  font-size: 3em;
-  transition: .4s;
-}
-
-h1, h2{
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
   font-family: 'DS-Roti', sans-serif;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-@font-face {
-  font-family: 'DS-Roti';
-  src: url('./fonts/love_roti/Love\ Roti.ttf') format('truetype');
-}
-
-header h1:hover {
-  cursor: default;
 }
 
 header h1 img {
   width: 40px;
+  margin-left: 0.5rem;
 }
 
 header a {
-  color: #fff;
-  text-decoration: none;
-  padding: 4px 4px 0 3px;
   position: absolute;
   top: 1rem;
-  left: 1.5rem;
+  left: 1rem;
+  text-decoration: none;
   transition: .2s;
-  border-radius: 30px;
-  border: 1px solid white;
 }
 
 header a:hover {
-  background-color: #323836;
   filter: opacity(.5);
 }
 
@@ -70,167 +70,188 @@ header a img {
   height: 45px;
 }
 
+/* Main */
 main {
-  background-color: #16423C;
-  width: 100%;
-  height: 80%;
-  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #score {
-  font-size: 24px;
-  padding: 1rem 0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 canvas {
-  background-color: #000;
-  display: block;
-  margin: 0 auto;
-  border: 1px solid #fff;
+  background-color: #10312d;
+  border: 1px solid var(--color-text);
+  max-width: 100%;
+  height: auto;
 }
-
-/* Estilos para el texto de cuenta regresiva */
-.countdown-text {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 72px;
-  color: white;
-}
-
-/* Estilos para el mensaje de "Pausado" */
-.paused-text {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 55px;
-  color: white;
-}
-
 
 #startButton,
 #restartButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 18px;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 0.5rem;
+  background-color: var(--color-button);
+  color: var(--color-text);
+  border: none;
+  transition: background-color 0.3s;
 }
 
-/* Estilos para el modal */
+#startButton:hover,
+#restartButton:hover {
+  background-color: var(--color-button-hover);
+}
+
+/* Modal */
 .modal {
-  display: none; /* Ocultar por defecto */
+  display: none;
   position: fixed;
-  z-index: 1; /* Se coloca encima de otros elementos */
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {
   background-color: #fefefe;
   color: #000;
-  width: 80%;
-  height: 200px;
-  max-width: 350px; /* Ancho máximo */
-  margin: 20% auto;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  margin: 25% auto;
+  padding: 1rem;
   border: 1px solid #888;
-  border-radius: 5px;
+  width: 80%;
+  max-width: 350px;
   text-align: center;
-  position: relative;
+  border-radius: 0.5rem;
 }
 
-h2 {
-  color: #C4DAD2;
-  font-size: 2.5em;
-  cursor: default;
-  margin-top: .6rem;
+.modal-content h2 {
+  color: #000;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'DS-Roti', sans-serif;
 }
 
 .modal-content p {
-  font-size: 1.5em;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-button#restartGame {
-  background-color: #4CAF50;
-  color: white;
-  max-width: 13rem;
-  padding: 15px 25px;
-  margin: 0 0 .2rem 0;
+#restartGame {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: var(--color-button);
+  color: var(--color-text);
   border: none;
+  border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 18px;
-  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-button#restartGame:hover {
-  filter: contrast(1.2);
+#restartGame:hover {
+  background-color: var(--color-button-hover);
 }
 
+/* Footer */
 footer {
-  background-color: #16423C;
-  color: #fff;
-  height: 7%;
+  background-color: var(--color-header-footer-bg);
+  color: var(--color-header-footer-text);
+  padding: 1rem;
+  text-align: center;
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  align-items: center;
-  text-align: center;
 }
 
-footer a {
+footer .by-foot {
+  margin-bottom: 0.5rem;
+}
+
+footer .by-foot a {
+  color: var(--color-header-footer-text);
+  text-decoration: none;
+}
+
+footer .by-foot a:hover {
   color: #fff;
+  text-decoration: underline;
 }
 
-.logos-foot {
-  width: 140px;
+footer .logos-foot {
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around
+  justify-content: center;
+  gap: 1rem;
 }
 
-.by-foot {
-  color: #C4DAD2;
-  display: flex;
-  text-align: center;
-  align-items: center;
+footer .logos-foot a {
+  color: var(--color-header-footer-text);
 }
 
-.by-foot a {
-  color: #C4DAD2;
-  margin-left: 5px;
-  text-decoration: none;
+footer .logos-foot a svg {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s, color 0.2s;
 }
 
-.by-foot a:hover {
-  color: white;
-  text-decoration:underline;
+footer .logos-foot a:hover svg {
+  transform: scale(1.2);
+  color: var(--color-accent);
 }
 
-.logos-foot a {
-  text-decoration: none;
-  padding: 5px;
+/* Estilos para el texto de cuenta regresiva y pausa */
+.countdown-text, .paused-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: var(--color-text);
 }
 
-.logos-foot a:hover svg {
-  color: #16e716;
-  scale: 1.3;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
 
-.logos-foot a svg {
-  color: #C4DAD2;
-  width: 25px; /* Cambia el ancho a 50px */
-  height: 25px; /* Cambia el alto a 50px */
-  margin: 0;
-  transition: .2s;
-}
+  header h1 img {
+    width: 30px;
+  }
 
+  header a img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #score {
+    font-size: 1.2rem;
+  }
+
+  #startButton,
+  #restartButton,
+  #restartGame {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content p {
+    font-size: 1rem;
+  }
+
+  .countdown-text, .paused-text {
+    font-size: 2.5rem;
+  }
+}

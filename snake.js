@@ -62,6 +62,23 @@ function handleKeyDown(event) {
     }
 }
 
+function adjustCanvasSize() {
+    const containerWidth = main.offsetWidth * 0.9; // 90% del ancho disponible en el main
+    const aspectRatio = 660 / 420; // Mantener la relación de aspecto original
+    const canvasWidth = Math.min(containerWidth, 660); // No exceder el ancho original
+    const canvasHeight = canvasWidth / aspectRatio;
+    
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+}
+
+window.addEventListener('resize', adjustCanvasSize);
+window.addEventListener('load', () => {
+    adjustCanvasSize();
+    // Si tienes una función de inicialización del juego, puedes llamarla aquí
+});
+
+
 // Función para iniciar el juego
 function initGame() {
     speed = INITIAL_SPEED;
@@ -365,3 +382,4 @@ restartGameButton.addEventListener('click', function() {
     modal.style.display = 'none';
     restartButton.click();
 });
+
