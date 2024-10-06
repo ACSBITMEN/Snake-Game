@@ -41,7 +41,6 @@ h1, h2{
 }
 
 header h1:hover {
-  color: #C4DAD2;
   cursor: default;
 }
 
@@ -67,8 +66,8 @@ header a:hover {
 }
 
 header a img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
 main {
@@ -90,6 +89,27 @@ canvas {
   border: 1px solid #fff;
 }
 
+/* Estilos para el texto de cuenta regresiva */
+.countdown-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  color: white;
+}
+
+/* Estilos para el mensaje de "Pausado" */
+.paused-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 55px;
+  color: white;
+}
+
+
 #startButton,
 #restartButton {
   margin-top: 20px;
@@ -98,16 +118,6 @@ canvas {
   cursor: pointer;
   border-radius: 15px;
 }
-
-#countdown {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 72px;
-  color: #fff;
-}
-
 
 /* Estilos para el modal */
 .modal {
@@ -141,30 +151,9 @@ canvas {
 
 h2 {
   color: #C4DAD2;
-  font-size: 2em;
+  font-size: 2.5em;
   cursor: default;
   margin-top: .6rem;
-}
-
-.close {
-  background-color: #d83939;
-  color: white;
-  width: 2.5rem;
-  height: 2.2rem;
-  margin: 5px;
-  padding: 0 1px;
-  font-size: 2em;
-  font-weight: bold;
-  position: absolute;
-  top: 0rem;
-  right: 1px;
-  border-radius: 5px;
-}
-
-.close:hover, .close:focus {
-  color: #ffd1d1;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .modal-content p {
@@ -179,15 +168,13 @@ button#restartGame {
   margin: 0 0 .2rem 0;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 5px;
 }
 
 button#restartGame:hover {
-  background-color: #45a049;
+  filter: contrast(1.2);
 }
-
-
 
 footer {
   background-color: #16423C;
