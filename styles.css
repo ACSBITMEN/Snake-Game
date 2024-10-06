@@ -10,6 +10,21 @@
   --color-header-footer-text: #C4DAD2;
 }
 
+/* Fuentes usadas */
+@font-face {
+  font-family: 'DS-Roti';
+  src: url('./fonts/love_roti/Love Roti.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DS-Extra';
+  src: url('./fonts/extra_days/Extra\ Days.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DS-Only';
+  src: url('./fonts/island_2/Island\ PERSONAL\ USE\ ONLY!.ttf') format('truetype');
+}
+
+
 /* Reiniciar estilos predeterminados */
 * {
   margin: 0;
@@ -25,15 +40,10 @@ body {
   min-height: 100vh;
 }
 
-@font-face {
-  font-family: 'DS-Roti';
-  src: url('./fonts/love_roti/Love Roti.ttf') format('truetype');
-}
 
 /* Header */
 header {
   background-color: var(--color-header-footer-bg);
-  color: var(--color-header-footer-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,10 +52,11 @@ header {
 }
 
 header h1 {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   display: flex;
   align-items: center;
-  font-family: 'DS-Roti', sans-serif;
+  font-family: 'DS-Extra', sans-serif;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 header h1 img {
@@ -88,18 +99,22 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 5px 0 10px;
+  padding: 10px 0 10px;
   border-radius: 5px 5px 0 0;
+}
+
+.options div {
+  display: flex;
+  align-items: center;
 }
 
 #score {
   font-size: 1.5rem;
+  text-shadow: -1px -1px 0 #16423C, 1px -1px 0 #16423C, -1px 1px 0 #16423C, 1px 1px 0 #16423C;
 }
 
-
-.options button, .modal button {
+.options div button, .modal div button {
   padding: 10px 20px;
-  margin-top: 10px;
   background-color: var(--bg-color);
   color: white;
   border: none;
@@ -127,6 +142,7 @@ canvas {
   transform: translate(-50%, -50%);
   font-size: 3rem;
   color: var(--color-text);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .btn-container {
@@ -142,6 +158,7 @@ canvas {
   margin-top: 1rem;
   padding: .8rem 1rem;
   font-size: 1.1em;
+  font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
   background-color: var(--color-button);
@@ -164,9 +181,12 @@ canvas {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   overflow: auto;
   background-color: rgba(0,0,0,0.5);
+}
+
+#gameOverModal {
+  height: 100%;
 }
 
 .modal-content {
@@ -185,7 +205,7 @@ canvas {
   color: #000;
   font-size: 2rem;
   margin-bottom: 1rem;
-  font-family: 'DS-Roti', sans-serif;
+  font-family: 'DS-Extra', sans-serif;
 }
 
 .modal-content p {
@@ -206,6 +226,25 @@ canvas {
 
 #restartGame:hover {
   background-color: var(--color-button-hover);
+}
+
+#dynamicModal {
+  height: 100%;
+}
+
+#dynamicModal .modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+  max-width: 400px;
+  margin: 15% auto;
+}
+
+#dynamicModal .modal-content h2 {
+  font-size: 1.8em;
+  padding: 5px;
+  font-family: 'DS-Extra', sans-serif;
 }
 
 /* Footer */
