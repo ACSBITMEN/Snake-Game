@@ -18,10 +18,20 @@
         
     </header>
     <main id="main">
-        <div id="score">Puntuación: 0</div>
+        <div class="options">
+            <div class="instrucctions">
+                <button id="btnRuleGame">Instrucciones</button>
+            </div>
+            <div id="score">Puntuación: 0</div>
+            <div class="bestScore">
+                <button id="btnBestScore">Puntuaciones</button>
+            </div>
+        </div>
         <canvas id="gameCanvas" width="660" height="420"></canvas>
-        <button id="startButton">Iniciar Juego</button>
-        <button id="restartButton" style="display: none;">Reiniciar</button>
+        <div class="btn-container">
+            <button id="startButton">Iniciar Juego</button>
+            <button id="restartButton" style="display: none;">Reiniciar</button>
+        </div>
     </main>
 
     <!-- Modal de fin del juego -->
@@ -31,19 +41,23 @@
         <p id="finalScore"></p>
         <button id="restartGame">Reiniciar Juego</button>
         </div>
-    </div>  
+    </div> 
+    
+    <!-- Modal único para Instrucciones y Puntuaciones -->
+    <div id="dynamicModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2> <!-- Título dinámico -->
+            <p id="modalBody"></p> <!-- Contenido dinámico -->
+            <button id="closeModal">Cerrar</button>
+        </div>
+    </div>
 
     <footer>
         <div class="by-foot">
-            Desarrollado por <a href=""> andressuarez.com.co</a>
+            Desarrollado por <a href="https://andressuarez.com.co/" target="_blank"> andressuarez.com.co</a>
         </div>
         <div class="logos-foot">
-            <!--Enlace a Mypage -->
-            <a href="https://andressuarez.com.co/" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-heart-fill" viewBox="0 0 16 16">
-                    <path d="M2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
-                </svg>
-            </a>
+            <p>Redes:</p>
             <!--Enlace a Github -->
             <a href="https://github.com/ACSBITMEN" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">

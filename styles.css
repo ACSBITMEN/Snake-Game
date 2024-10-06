@@ -1,11 +1,11 @@
 :root {
-  --color-background: #16423C;
-  --color-text: #FFFFFF;
-  --color-accent: #16e716;
+  --bg-color: #16423C;
+  --color-text: #FFF;
+  --color-greenNeon: #dcf11e;
   --color-border: #dcf11e;
   --color-food: #ffffff;
-  --color-button: #4CAF50;
-  --color-button-hover: #45a049;
+  --color-button: #3b8d82;
+  --color-button-hover: #dcf11e;
   --color-header-footer-bg: #16423C;
   --color-header-footer-text: #C4DAD2;
 }
@@ -19,7 +19,7 @@
 
 body {
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -42,7 +42,7 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   display: flex;
   align-items: center;
   font-family: 'DS-Roti', sans-serif;
@@ -68,6 +68,7 @@ header a:hover {
 header a img {
   width: 45px;
   height: 45px;
+  border-radius: 30px;
 }
 
 /* Main */
@@ -76,12 +77,39 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 3rem;
+}
+
+.options {
+  width: 100%;
+  max-width: 662px;
+  background-color: #3b8d82;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px 0 10px;
+  border-radius: 5px 5px 0 0;
 }
 
 #score {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+}
+
+
+.options button, .modal button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: var(--bg-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.options button:hover, .modal button:hover {
+  background-color: var(--color-greenNeon);
+  color: #000;
 }
 
 canvas {
@@ -91,13 +119,31 @@ canvas {
   height: auto;
 }
 
+/* Estilos para el texto de cuenta regresiva y pausa */
+.countdown-text, .paused-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: var(--color-text);
+}
+
+.btn-container {
+  display: flex;
+}
+
+.btn-container button:nth-child(1) {
+  margin-right: 1rem;
+}
+
 #startButton,
 #restartButton {
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: .8rem 1rem;
+  font-size: 1.1em;
   cursor: pointer;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   background-color: var(--color-button);
   color: var(--color-text);
   border: none;
@@ -106,7 +152,8 @@ canvas {
 
 #startButton:hover,
 #restartButton:hover {
-  background-color: var(--color-button-hover);
+  background-color: var(--color-greenNeon);
+  color: #000;
 }
 
 /* Modal */
@@ -189,6 +236,7 @@ footer .by-foot a:hover {
 footer .logos-foot {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -197,24 +245,14 @@ footer .logos-foot a {
 }
 
 footer .logos-foot a svg {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   transition: transform 0.2s, color 0.2s;
 }
 
 footer .logos-foot a:hover svg {
   transform: scale(1.2);
-  color: var(--color-accent);
-}
-
-/* Estilos para el texto de cuenta regresiva y pausa */
-.countdown-text, .paused-text {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: var(--color-text);
+  color: var(--color-greenNeon);
 }
 
 /* Responsive Design */

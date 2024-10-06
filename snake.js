@@ -46,6 +46,14 @@ const restartButton = document.getElementById('restartButton');
 const modal = document.getElementById('gameOverModal');
 const finalScoreDisplay = document.getElementById('finalScore');
 const restartGameButton = document.getElementById('restartGame');
+// Obtener referencias al Instrucciones y Mejores puntuaciones
+const btnRuleGame = document.querySelector('.instrucctions button');
+const btnBestScore = document.querySelector('.bestScore button');
+const dynamicModal = document.getElementById('dynamicModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalBody = document.getElementById('modalBody');
+const closeModal = document.getElementById('closeModal');
+
 
 // Controlar la serpiente con las teclas de flecha
 document.addEventListener('keydown', handleKeyDown);
@@ -383,3 +391,34 @@ restartGameButton.addEventListener('click', function() {
     restartButton.click();
 });
 
+// Función para abrir el modal con contenido dinámico
+function openModal(title, content) {
+    modalTitle.textContent = title;
+    modalBody.textContent = content;
+    dynamicModal.style.display = 'flex'; // Mostrar el modal
+}
+
+
+
+// Eventos para los botones
+// Mostrar el modal con las instrucciones
+btnRuleGame.addEventListener('click', () => {
+    openModal('Instrucciones Del Juego', 'Utiliza las teclas de flecha (← ↑ ↓ →) para mover la serpiente. Come la comida para crecer, pero evita chocar contigo mismo o con los bordes.');
+});
+
+// Mostrar el modal con las mejores puntuaciones
+btnBestScore.addEventListener('click', () => {
+    openModal('Mejores Puntuaciones', 'Puntuación más alta: 120 puntos');
+});
+
+// Cerrar el modal cuando se haga clic en el botón de cerrar
+closeModal.addEventListener('click', () => {
+    dynamicModal.style.display = 'none'; // Ocultar el modal
+});
+
+// Cerrar el modal si se hace clic fuera del contenido del modal
+window.addEventListener('click', (event) => {
+    if (event.target == dynamicModal) {
+        dynamicModal.style.display = 'none'; // Ocultar el modal
+    }
+});
