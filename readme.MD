@@ -1,6 +1,8 @@
 # Snake Game 🐍
 
-![Juego de la serpiente](https://raw.githubusercontent.com/ACSBITMEN/Codigo-Secreto/refs/heads/main/img/view-preview.png)
+![Juego de la serpiente](https://raw.githubusercontent.com/ACSBITMEN/Snake-Game/refs/heads/main/assets/preview-page/Preview2.png)
+
+![Juego de la serpiente 2](https://raw.githubusercontent.com/ACSBITMEN/Snake-Game/refs/heads/main/assets/preview-page/Preview3.png)
 
 
 ## Descripción
