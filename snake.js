@@ -422,3 +422,5 @@ window.addEventListener('click', (event) => {
         dynamicModal.style.display = 'none'; // Ocultar el modal
     }
 });
+
+// Prueba
