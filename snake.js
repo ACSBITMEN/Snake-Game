@@ -4,10 +4,10 @@ const ctx = canvas.getContext('2d');
 
 // Cargar los sprites
 const snakeSprite = new Image();
-snakeSprite.src = '/assets/Snake-Spritesheet.png';
+snakeSprite.src = 'https://raw.githubusercontent.com/ACSBITMEN/Snake-Game/refs/heads/main/assets/Snake-Spritesheet.png';
 
 const foodSprite = new Image();
-foodSprite.src = '/assets/Snake-Food.png';
+foodSprite.src = 'https://raw.githubusercontent.com/ACSBITMEN/Snake-Game/refs/heads/main/assets/Snake-Food.png';
 
 // Variables de estilos CSS (si se usan)
 const rootStyles = getComputedStyle(document.documentElement);
